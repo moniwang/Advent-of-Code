@@ -19,24 +19,15 @@ int main() {
     // Reading in claims and making the fabric
 
     string claim;
+    char info;
 
     vector<Claim> claims;
     vector<int> v (1000, 0);
     vector<vector<int>> fabric(1000, v);
 
-    while (getline(cin, claim)) {
-        
-        size_t findAt = claim.find("@");
-        size_t findCom = claim.find(",");
-        size_t findCol = claim.find(":");
-        size_t findX = claim.find("x");
-
-        int claimNum = stoi(claim.substr(1, findAt-2));
-        int col = stoi(claim.substr(findAt+2, findCom-findAt+2));
-        int row = stoi(claim.substr(findCom+1, findCol-findCom+1));
-        int sizeX = stoi(claim.substr(findCol+2, findX-findCol+2));
-        int sizeY = stoi(claim.substr(findX+1));
-
+    int claimNum, col, row, sizeX, sizeY;
+    while (cin >> info >> claimNum >> info >> col >> info 
+           >> row >> info >> sizeX >> info >> sizeY) {
         claims.push_back({claimNum, col, row, sizeX, sizeY});
     }
 
